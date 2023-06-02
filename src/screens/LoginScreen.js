@@ -1,3 +1,5 @@
+//*! LoginScreen.js v1.0 June 1 2023
+
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-paper';

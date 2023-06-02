@@ -1,3 +1,5 @@
+//*! TextInput.js v1.0 June 1 2023
+
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { TextInput as Input } from 'react-native-paper'

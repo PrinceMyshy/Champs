@@ -1,3 +1,5 @@
+//*! RegisterScreen.js v1.0 June 1 2023
+
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-paper';
@@ -11,8 +13,6 @@ import { theme } from '../core/theme';
 import { Alert } from 'react-native';
 import Auth0 from 'react-native-auth0';
 import SQLite from 'react-native-sqlite-storage';
-import { Password } from '../helpers/hashing'; // Import the hashing script
-
 var sha512 = require('js-sha512');
 
 const auth0Config = {
@@ -32,7 +32,7 @@ const RegisterScreen = ({ navigation }) => {
     const hashedPassword = sha512(password);
 
     db.transaction(tx => {
-      // Check if the email already exists in the database
+      // check if the email already exists
       tx.executeSql(
         'SELECT * FROM account_info WHERE email = ?',
         [email],
@@ -40,7 +40,7 @@ const RegisterScreen = ({ navigation }) => {
           if (rows.length > 0) {
             Alert.alert('Email already exists');
           } else {
-            // Generate a unique 9-digit random ID
+            // generate 9d random id
             const id = Math.floor(Math.random() * (999999999 - 100000000 + 1)) + 100000000;
 
             // Insert the user into the database
@@ -48,12 +48,12 @@ const RegisterScreen = ({ navigation }) => {
               'INSERT INTO account_info (name, hashed_password, id, date_of_creation, email_verified) VALUES (?, ?, ?, ?, ?)',
               [name, hashedPassword, id, new Date().toISOString(), false],
               (_, { insertId }) => {
-                // Send verification email using Auth0
+                // Send verification email 
                 auth0.auth
                   .sendEmailVerification({ email })
                   .then(() => {
                     Alert.alert('Verification email sent');
-                    // Navigate to the email verification screen
+                    
                   })
                   .catch(error => console.log(error));
               },

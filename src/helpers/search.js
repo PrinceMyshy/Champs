@@ -1,3 +1,5 @@
+//*! search.js v1.0 June 1 2023
+
 const searchBox = document.getElementById('searchBox');
 
 searchBox.addEventListener('input', handleSearch);
@@ -11,13 +13,13 @@ function handleSearch(event) {
 }
 
 function searchInDatabase(searchTerm) {
-// sorted results (potential: AJAX?)
+// sorted results (potential: use AJAX?)
   const results = [
-    { id: 1, name: 'Item 1', category: 'Category A',  },
-    { id: 2, name: 'Item 2', category: 'Category B', },
-    { id: 3, name: 'Item 3', category: 'Category A', },
-    { id: 4, name: 'Item 4', category: 'Category C', },
-    { id: 5, name: 'Item 5', category: 'Category B', }
+    { id: 1, name: 'item 1', category: 'category A',  },
+    { id: 2, name: 'item 2', category: 'category B', },
+    { id: 3, name: 'item 3', category: 'category A', },
+    { id: 4, name: 'item 4', category: 'category C', },
+    { id: 5, name: 'item 5', category: 'category B', }
   ];
 
   const sortedResults = results.sort((a, b) => a.category - b.category);

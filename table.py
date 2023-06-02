@@ -1,3 +1,5 @@
+#*! table.py v1.0 June 1 2023
+
 import sqlite3
 
 # Create a connection to the database

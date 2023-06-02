@@ -1,3 +1,5 @@
+//*! emailValidator.js v1.0 June 1 2023
+
 export function emailValidator(email) {
   const re = /\S+@\S+\.\S+/
   if (!email) return "Email can't be empty."

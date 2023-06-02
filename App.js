@@ -1,3 +1,5 @@
+//*! App.js v1.0 June 1 2023
+
 // import { registerRootComponent } from 'expo';
 import React from 'react'
 import { Provider } from 'react-native-paper'

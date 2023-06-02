@@ -1,3 +1,6 @@
+//*! BackButton.js v1.0 June 1 2023
+
+
 import React from 'react'
 import { TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
